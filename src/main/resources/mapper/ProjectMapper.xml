@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zirauser.dao.ProjectMapper">
+    <resultMap id="ProjectMap" type="com.example.zirauser.entity.Project">
+        <id column="project_id" property="id" jdbcType="VARCHAR"/>
+        <result column="project_name" property="name" jdbcType="VARCHAR"/>
+        <result column="project_description" property="description" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="project">
+        project_id, project_name, project_description
+    </sql>
+    <select id="getProjectById" resultMap="ProjectMap">
+        SELECT
+        <include refid="project"/>
+        FROM project
+        WHERE project_id = #{id}
+    </select>
+
+    <insert id="addProject">
+        <selectKey resultType="java.lang.String" order="BEFORE" keyProperty="id">
+            SELECT uuid()
+        </selectKey>
+        INSERT INTO project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            project_id,
+            <if test="name != null">
+                project_name,
+            </if>
+            <if test="description != null">
+                project_description,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+            #{id},
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="description != null">
+                #{description},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateProject">
+        UPDATE project
+        <set>
+            <if test="name != null">
+                project_name = #{name},
+            </if>
+            <if test="description != null">
+                project_description = #{description},
+            </if>
+        </set>
+        WHERE project_id = #{id}
+    </update>
+
+    <delete id="deleteProjectById">
+        DELETE FROM project WHERE project_id = #{id}
+    </delete>
+
+    <select id="getProjectByIds" resultMap="ProjectMap">
+        SELECT
+        <include refid="project"/>
+        FROM project
+        WHERE project_id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
+</mapper>
