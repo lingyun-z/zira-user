@@ -1,6 +1,6 @@
 version: "2"
 services:
-  zira-eureka:
+  zira-user:
     restart: always
     image: zira-user
     container_name: zira-user
