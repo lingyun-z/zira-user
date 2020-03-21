@@ -32,9 +32,15 @@ public class AuthServiceImpl implements AuthService {
   }
 
   @Override
-  public List<Auth> getAuthByUserId(String userId) {
+  public List<Auth> getAuthProjectByUserId(String userId) {
     logger.info("getAuthByUserId userId: {}", userId);
     return authMapper.getAuthByUserId(userId);
+  }
+
+  @Override
+  public List<Auth> getAuthUserByProjectId(String id) {
+    logger.info("getAuthByUserId projectId: {}", id);
+    return authMapper.getAuthUserByProjectId(id);
   }
 
   @Override

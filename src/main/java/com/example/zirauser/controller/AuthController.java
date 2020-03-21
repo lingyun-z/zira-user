@@ -1,6 +1,7 @@
 package com.example.zirauser.controller;
 
 import com.example.zirauser.entity.Auth;
+import com.example.zirauser.entity.User;
 import com.example.zirauser.service.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class AuthController {
   public ResponseEntity<List<Auth>> getAuthByUserId(@PathVariable("userId") String userId) {
     List<Auth> result;
     try {
-      result = authService.getAuthByUserId(userId);
+      result = authService.getAuthProjectByUserId(userId);
     } catch (Exception e) {
       logger.error(e.getMessage());
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -62,6 +63,18 @@ public class AuthController {
     Integer result;
     try {
       result = authService.deleteAuthById(id);
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
+  }
+
+  @GetMapping("/project/{id}")
+  public ResponseEntity<List<Auth>> getAuthUserByProjectId(@PathVariable("id") String id) {
+    List<Auth> result;
+    try {
+      result = authService.getAuthUserByProjectId(id);
     } catch (Exception e) {
       logger.error(e.getMessage());
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

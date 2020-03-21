@@ -9,7 +9,9 @@ public interface AuthService {
 
   Auth updateAuth(Auth auth);
 
-  List<Auth> getAuthByUserId(String userId);
+  List<Auth> getAuthProjectByUserId(String userId);
+
+  List<Auth> getAuthUserByProjectId(String id);
 
   Auth getAuthById(String id);
 

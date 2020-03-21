@@ -1,6 +1,7 @@
 package com.example.zirauser.controller;
 
 import com.example.zirauser.entity.User;
+import com.example.zirauser.service.AuthService;
 import com.example.zirauser.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,9 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+
+  @Autowired
+  private AuthService authService;
 
   @GetMapping("/{id}")
   public ResponseEntity<User> getUserById(@PathVariable String id) {

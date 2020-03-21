@@ -1,0 +1,13 @@
+version: "2"
+services:
+  zira-eureka:
+    restart: always
+    image: zira-user
+    container_name: zira-user
+    expose:
+      - "80"
+    networks:
+      - zira
+networks:
+  zira:
+    external: true

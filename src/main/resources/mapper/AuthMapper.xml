@@ -62,6 +62,13 @@
         </trim>
     </insert>
 
+    <select id="getAuthUserByProjectId" resultMap="AuthMap">
+        SELECT
+        <include refid="auth"/>
+        FROM project_auth
+        WHERE project_id = #{id}
+    </select>
+
     <delete id="deleteAuthById">
         DELETE FROM project_auth WHERE project_auth_id = #{id}
     </delete>

@@ -13,5 +13,7 @@ public interface AuthMapper {
 
   List<Auth> getAuthByUserId(String UserId);
 
+  List<Auth> getAuthUserByProjectId(String id);
+
   int deleteAuthById(String id);
 }
