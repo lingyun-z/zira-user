@@ -5,7 +5,7 @@ import com.example.zirauser.entity.Project;
 import java.util.List;
 
 public interface ProjectService {
-  Project addProject(Project project);
+  Project addProject(Project project, String userId);
 
   Project updateProject(Project project);
 
@@ -14,4 +14,6 @@ public interface ProjectService {
   int deleteProjectById(String id);
 
   List<Project> getProjectByIds(List<String> ids);
+
+  Project getProjectByName(String name);
 }

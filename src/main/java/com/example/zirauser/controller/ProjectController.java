@@ -30,11 +30,11 @@ public class ProjectController {
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
-  @PostMapping
-  public ResponseEntity<Project> addProject(@RequestBody Project project) {
+  @PostMapping("/{id}")
+  public ResponseEntity<Project> addProject(@RequestBody Project project, @PathVariable("id") String userId) {
     Project result;
     try {
-      result = projectService.addProject(project);
+      result = projectService.addProject(project, userId);
     } catch (Exception e) {
       logger.error(e.getMessage());
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -72,6 +72,18 @@ public class ProjectController {
     List<Project> result;
     try {
       result = projectService.getProjectByIds(ids);
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
+  }
+
+  @GetMapping("/name/{name}")
+  public ResponseEntity<Project> getProjectByName(@PathVariable("name") String name) {
+    Project result;
+    try {
+      result = projectService.getProjectByName(name);
     } catch (Exception e) {
       logger.error(e.getMessage());
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

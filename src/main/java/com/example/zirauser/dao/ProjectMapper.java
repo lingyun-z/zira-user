@@ -15,4 +15,6 @@ public interface ProjectMapper {
   int deleteProjectById(String id);
 
   List<Project> getProjectByIds(@Param("ids") List<String> ids);
+
+  Project getProjectByName(String name);
 }

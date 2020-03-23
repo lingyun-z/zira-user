@@ -67,4 +67,11 @@
             #{id}
         </foreach>
     </select>
+
+    <select id="getProjectByName" resultMap="ProjectMap">
+        SELECT
+        <include refid="project"/>
+        From project
+        WHERE project_name = #{name}
+    </select>
 </mapper>
