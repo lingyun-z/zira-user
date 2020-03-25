@@ -1,8 +1,9 @@
 CREATE TABLE user(
     user_id VARCHAR(36) PRIMARY KEY NOT NULL,
-    work_user_id VARCHAR(36) NOT NULL,
-    name VARCHAR(256),
-    mail VARCHAR(256)
+    work_user_id VARCHAR(36),
+    name VARCHAR(256) NOT NULL,
+    mail VARCHAR(256) NOT NULL unique,
+    password VARCHAR(256) NOT NULL
 );
 
 CREATE TABLE project(

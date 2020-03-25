@@ -5,15 +5,17 @@ public class User {
   private String workUserId;
   private String name;
   private String mail;
+  private String password;
 
   public User() {
   }
 
-  public User(String id, String workUserId, String name, String mail) {
+  public User(String id, String workUserId, String name, String mail, String password) {
     this.id = id;
     this.workUserId = workUserId;
     this.name = name;
     this.mail = mail;
+    this.password = password;
   }
 
   public String getId() {
@@ -46,6 +48,14 @@ public class User {
 
   public void setMail(String mail) {
     this.mail = mail;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   @Override
