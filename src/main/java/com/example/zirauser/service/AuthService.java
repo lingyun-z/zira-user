@@ -16,4 +16,6 @@ public interface AuthService {
   Auth getAuthById(String id);
 
   int deleteAuthById(String id);
+
+  int deleteAuthByProjectId(String id);
 }

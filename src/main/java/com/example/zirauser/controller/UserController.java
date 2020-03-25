@@ -83,4 +83,16 @@ public class UserController {
     }
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
+
+  @GetMapping("/all")
+  public ResponseEntity<List<User>> getAllUser() {
+    List<User> result;
+    try {
+      result = userService.getAllUser();
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
+  }
 }

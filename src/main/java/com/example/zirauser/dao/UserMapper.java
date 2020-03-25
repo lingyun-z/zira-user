@@ -15,4 +15,6 @@ public interface UserMapper {
   int deleteUserById(String id);
 
   List<User> getUserByIds(@Param("ids") List<String> ids);
+
+  List<User> getAllUser();
 }

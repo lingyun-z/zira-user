@@ -16,4 +16,6 @@ public interface AuthMapper {
   List<Auth> getAuthUserByProjectId(String id);
 
   int deleteAuthById(String id);
+
+  int deleteAuthByProjectId(String id);
 }

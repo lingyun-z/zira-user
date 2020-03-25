@@ -47,4 +47,10 @@ public class UserServiceImpl implements UserService {
     logger.info("getUserByIds ids: {}", ids);
     return userMapper.getUserByIds(ids);
   }
+
+  @Override
+  public List<User> getAllUser() {
+    logger.info("getAllUser");
+    return userMapper.getAllUser();
+  }
 }

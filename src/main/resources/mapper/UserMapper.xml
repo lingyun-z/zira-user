@@ -72,4 +72,10 @@
             #{id}
         </foreach>
     </select>
+
+    <select id="getAllUser" resultMap="UserMap">
+        SELECT
+        <include refid="user"/>
+        FROM user
+    </select>
 </mapper>

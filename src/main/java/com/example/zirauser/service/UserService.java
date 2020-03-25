@@ -14,4 +14,6 @@ public interface UserService {
   int deleteUserById(String id);
 
   List<User> getUserByIds(List<String> ids);
+
+  List<User> getAllUser();
 }

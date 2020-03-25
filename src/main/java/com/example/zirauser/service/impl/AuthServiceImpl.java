@@ -54,4 +54,10 @@ public class AuthServiceImpl implements AuthService {
     logger.info("deleteAuthById id: {}", id);
     return authMapper.deleteAuthById(id);
   }
+
+  @Override
+  public int deleteAuthByProjectId(String id) {
+    logger.info("deleteAuthByProjectId projectId: {}", id);
+    return authMapper.deleteAuthByProjectId(id);
+  }
 }

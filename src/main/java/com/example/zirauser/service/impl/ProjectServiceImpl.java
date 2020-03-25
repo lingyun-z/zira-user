@@ -46,8 +46,10 @@ public class ProjectServiceImpl implements ProjectService {
   }
 
   @Override
+  @Transactional
   public int deleteProjectById(String id) {
     logger.info("deleteProjectById id: {}", id);
+    authService.deleteAuthByProjectId(id);
     return projectMapper.deleteProjectById(id);
   }
 

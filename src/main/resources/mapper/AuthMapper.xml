@@ -72,4 +72,8 @@
     <delete id="deleteAuthById">
         DELETE FROM project_auth WHERE project_auth_id = #{id}
     </delete>
+
+    <delete id="deleteAuthByProjectId">
+        DELETE FROM project_auth WHERE project_id = #{id}
+    </delete>
 </mapper>
