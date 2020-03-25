@@ -16,4 +16,6 @@ public interface UserService {
   List<User> getUserByIds(List<String> ids);
 
   List<User> getAllUser();
+
+  User userValid(User user);
 }

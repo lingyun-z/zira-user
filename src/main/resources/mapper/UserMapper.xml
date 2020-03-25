@@ -78,4 +78,11 @@
         <include refid="user"/>
         FROM user
     </select>
+
+    <select id="userValid" resultMap="UserMap">
+        SELECT
+        <include refid="user"/>
+        FROM user
+        WHERE mail = #{mail}
+    </select>
 </mapper>

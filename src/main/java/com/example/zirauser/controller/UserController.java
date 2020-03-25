@@ -95,4 +95,16 @@ public class UserController {
     }
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
+
+  @PostMapping("/valid")
+  public ResponseEntity<User> vaildUser(@RequestBody User user) {
+    User result;
+    try {
+      result = userService.userValid(user);
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
+  }
 }

@@ -53,4 +53,10 @@ public class UserServiceImpl implements UserService {
     logger.info("getAllUser");
     return userMapper.getAllUser();
   }
+
+  @Override
+  public User userValid(User user) {
+    logger.info("getUserValid user: {}", user);
+    return userMapper.userValid(user);
+  }
 }

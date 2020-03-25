@@ -17,4 +17,6 @@ public interface UserMapper {
   List<User> getUserByIds(@Param("ids") List<String> ids);
 
   List<User> getAllUser();
+
+  User userValid(User user);
 }
